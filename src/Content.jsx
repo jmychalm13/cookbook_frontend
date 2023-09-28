@@ -8,6 +8,7 @@ export function Content() {
   const handleIndexRecipes = () => {
     axios.get("http://localhost:3000/recipes.json").then((response) => {
       setRecipes(response.data);
+      console.log(response.data);
     });
   };
 
@@ -17,7 +18,15 @@ export function Content() {
       <h1>All Recipes</h1>
       <div className="recipes-container">
         {recipes.map((recipe, index) => (
-          <p key={index}>{recipe.name}</p>
+          <div key={index} className="card w-50">
+            <h3 className="fw-bold">{recipe.name}</h3>
+            <div className="card-body">
+              <p>
+                <strong>Chef:</strong> {recipe.chef}
+              </p>
+              {/* todo: total cooktime */}
+            </div>
+          </div>
         ))}
       </div>
     </div>
