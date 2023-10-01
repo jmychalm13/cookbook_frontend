@@ -16,18 +16,20 @@ export function Content() {
   return (
     <div>
       <h1>All Recipes</h1>
-      <div className="recipes-container">
-        {recipes.map((recipe, index) => (
-          <div key={index} className="card w-50">
-            <h3 className="fw-bold">{recipe.name}</h3>
-            <div className="card-body">
-              <p>
-                <strong>Chef:</strong> {recipe.chef}
-              </p>
-              {/* todo: total cooktime */}
+      <div className="container">
+        <div className="recipes-container row">
+          {recipes.map((recipe, index) => (
+            <div key={index} className="card col-4 gx-2 gy-2">
+              <h3 className="fw-bold">{recipe.name}</h3>
+              <div className="card-body">
+                <p>
+                  <strong>Chef:</strong> {recipe.chef}
+                </p>
+                {/* todo: total cooktime */}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
