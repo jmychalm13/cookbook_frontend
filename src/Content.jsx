@@ -15,7 +15,7 @@ export function Content() {
   useEffect(handleIndexRecipes, []);
   return (
     <div>
-      <h1>All Recipes</h1>
+      <h1 className="text-center">All Recipes</h1>
       <div className="container">
         <div className="recipes-container row">
           {recipes.map((recipe, index) => (
@@ -25,6 +25,10 @@ export function Content() {
                 <p>
                   <strong>Chef:</strong> {recipe.chef}
                 </p>
+                {/* <p>{recipe.ingredients_list}</p> */}
+                {recipe.ingredients_list.map((ingredient) => (
+                  <p key={ingredient.id}>{ingredient}</p>
+                ))}
                 {/* todo: total cooktime */}
               </div>
             </div>
