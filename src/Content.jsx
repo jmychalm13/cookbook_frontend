@@ -25,10 +25,19 @@ export function Content() {
                 <p>
                   <strong>Chef:</strong> {recipe.chef}
                 </p>
-                {/* <p>{recipe.ingredients_list}</p> */}
-                {recipe.ingredients_list.map((ingredient) => (
-                  <p key={ingredient.id}>{ingredient}</p>
-                ))}
+                <p>
+                  <strong>Indgredients:</strong>
+                </p>
+                {recipe.ingredients_list.length > 0 ? (
+                  recipe.ingredients_list.map((ingredient, index2) => {
+                    return <p key={index2}>{ingredient}</p>;
+                  })
+                ) : (
+                  <p>No ingredients listed.</p>
+                )}
+                {/* {recipe.ingredients_list.map((ingredient, index2) => (
+                  <p key={index2}>{ingredient}</p>
+                ))} */}
                 {/* todo: total cooktime */}
               </div>
             </div>
