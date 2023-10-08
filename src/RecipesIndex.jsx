@@ -28,6 +28,9 @@ export function RecipesIndex(props) {
                     <p>
                       <strong>Total cook time:</strong> {recipe.total_time}
                     </p>
+                    <button onClick={() => props.onSelectRecipe(recipe)} className="btn btn-primary">
+                      More Info
+                    </button>
                   </div>
                 </div>
               </div>
