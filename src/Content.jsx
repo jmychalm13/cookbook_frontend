@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { RecipesNew } from "./RecipesNew";
 import { RecipesIndex } from "./RecipesIndex";
 import { Routes, Route } from "react-router-dom";
 import { Modal } from "./Modal";
@@ -34,6 +35,7 @@ export function Content() {
     <div className="container">
       <Routes>
         <Route path="/" element={<RecipesIndex myRecipes={recipes} onSelectRecipe={handleShowRecipe} />} />
+        <Route path="/recipes/new" element={<RecipesNew />} />
       </Routes>
 
       <Modal show={isRecipeShowVisible} onClose={handleHideRecipe}>
