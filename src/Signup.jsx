@@ -1,3 +1,4 @@
+import "./Signup.css";
 import axios from "axios";
 import { useState } from "react";
 
@@ -17,7 +18,7 @@ export function Signup() {
         console.log(response.data);
         event.target.reset();
         // where you want to redirect to
-        // window.location.href = "/";
+        window.location.href = "/";
       })
       .catch((error) => {
         console.log(error.response.data.errors);
@@ -26,7 +27,7 @@ export function Signup() {
   };
 
   return (
-    <div>
+    <div id="signup-container">
       <section className="vh-100">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -99,9 +100,9 @@ export function Signup() {
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                       <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                        src="https://images.unsplash.com/photo-1627907228175-2bf846a303b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlY2lwZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
                         alt="sample-image"
-                        className="img-fluid"
+                        className="img-fluid rounded"
                       />
                     </div>
                   </div>

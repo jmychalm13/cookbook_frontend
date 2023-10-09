@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Signup } from "./Signup";
+import { Login } from "./Login";
 import { RecipesNew } from "./RecipesNew";
 import { RecipesIndex } from "./RecipesIndex";
 import { Routes, Route } from "react-router-dom";
@@ -36,6 +37,7 @@ export function Content() {
     <div className="container">
       <Routes>
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<RecipesIndex myRecipes={recipes} onSelectRecipe={handleShowRecipe} />} />
         <Route path="/recipes/new" element={<RecipesNew />} />
       </Routes>
