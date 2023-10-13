@@ -8,6 +8,27 @@ if (jwt) {
 }
 
 export function Login() {
+  const [errors, setErrors] = useState([]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setErrors([]);
+    const params = new FormData(event.target);
+    axios
+      .post("http://localhost:3000/sessions.json", params)
+      .then((response) => {
+        console.log(response.data);
+        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+        localStorage.setItem("jwt", response.data.jwt);
+        event.target.reset();
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.log(error.response);
+        setErrors(["Invalid email or password"]);
+      });
+  };
+
   return (
     <section className="h-100">
       <div className="container py-5 h-100">
@@ -25,15 +46,13 @@ export function Login() {
                       <h4 className="mt-1 mb-5 pb-1">This Is A Cookbook App</h4>
                     </div>
 
-                    <form>
+                    <form onSubmit={handleSubmit}>
                       <p>Please login to your account</p>
-
-                      <div className="form-floating mb-4">
-                        <input type="text" id="name" className="form-control" placeholder="Name" name="name" />
-                        <label className="form-label" htmlFor="name">
-                          Name
-                        </label>
-                      </div>
+                      <ul>
+                        {errors.map((error) => (
+                          <li key={error}>{error}</li>
+                        ))}
+                      </ul>
 
                       <div className="form-floating mb-4">
                         <input
@@ -63,8 +82,8 @@ export function Login() {
 
                       <div className="d-flex align-items-center justify-content-center pb-4">
                         <p className="mb-0 me-2">Sign up</p>
-                        <button type="button" className="btn btn-outline-primary">
-                          Create new
+                        <button type="submit" className="btn btn-outline-primary">
+                          Login
                         </button>
                       </div>
                     </form>
