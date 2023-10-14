@@ -31,6 +31,12 @@ export function Content() {
     setIsRecipeShowVisible(false);
   };
 
+  const handleCreateRecipe = (params) => {
+    axios.post("http://localhost:3000/recipes.json", params).then((response) => {
+      console.log(response.data);
+    });
+  };
+
   useEffect(handleIndexRecipes, []);
 
   return (
@@ -39,7 +45,7 @@ export function Content() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<RecipesIndex myRecipes={recipes} onSelectRecipe={handleShowRecipe} />} />
-        <Route path="/recipes/new" element={<RecipesNew />} />
+        <Route path="/new" element={<RecipesNew onCreateRecipe={handleCreateRecipe} />} />
       </Routes>
 
       <Modal show={isRecipeShowVisible} onClose={handleHideRecipe}>
