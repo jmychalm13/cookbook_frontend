@@ -83,7 +83,7 @@ export function Signup() {
                               type="password"
                               id="password_confirmation"
                               className="form-control"
-                              name="password-confirmation"
+                              name="password_confirmation"
                             />
                             <label className="form-label" htmlFor="password_confirmation">
                               Repeat your password
