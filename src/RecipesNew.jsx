@@ -36,6 +36,17 @@ export function RecipesNew(props) {
           <label htmlFor="temperature">Temperature</label>
         </div>
 
+        <div className="form-floating mb-3">
+          <input
+            type="text"
+            className="form-control"
+            id="ingredients"
+            placeholder="Ingredients"
+            name="ingredients_list"
+          />
+          <label htmlFor="ingredients">Ingredients</label>
+        </div>
+
         <button type="submit" className="btn btn-primary btn-lg">
           Submit
         </button>
