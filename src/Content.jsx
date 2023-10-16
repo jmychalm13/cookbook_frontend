@@ -37,6 +37,20 @@ export function Content() {
     });
   };
 
+  const handleUpdateRecipe = (id, params) => {
+    axios.patch(`http://localhost:3000/recipes/${id}.json`, params).then((response) => {
+      setRecipes(
+        recipes.map((recipe) => {
+          if (recipe.id === response.data.id) {
+            return response.data;
+          } else {
+            return recipe;
+          }
+        })
+      );
+    });
+  };
+
   useEffect(handleIndexRecipes, []);
 
   return (
@@ -49,7 +63,7 @@ export function Content() {
       </Routes>
 
       <Modal show={isRecipeShowVisible} onClose={handleHideRecipe}>
-        <RecipesShow recipe={currentRecipe} closeModal={handleHideRecipe} />
+        <RecipesShow recipe={currentRecipe} closeModal={handleHideRecipe} onUpdateRecipe={handleUpdateRecipe} />
       </Modal>
     </div>
   );
