@@ -97,11 +97,11 @@ export function Signup() {
                         </div>
                       </form>
                     </div>
-                    <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                    <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 text-center">
                       <img
                         src="https://images.unsplash.com/photo-1627907228175-2bf846a303b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlY2lwZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
                         alt="sample-image"
-                        className="img-fluid rounded"
+                        className="img-fluid rounded mx-auto"
                       />
                     </div>
                   </div>

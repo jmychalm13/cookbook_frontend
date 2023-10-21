@@ -1,8 +1,12 @@
 import "./Modal.css";
 
 export function RecipesShow(props) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <div className="recipes-show">
+    <div className="recipes-show border-none rounded">
       <h2>{props.recipe.name}</h2>
       <h5>Chef:</h5>
       <p>{props.recipe.chef}</p>
@@ -30,26 +34,21 @@ export function RecipesShow(props) {
       </div>
       <div className="edit-container">
         <h4>Edit Recipe</h4>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-floating flex-fill mb-3">
-            <input type="text" className="form-control" name={props.recipe.name} value={props.recipe.name} />
+            <input type="text" className="form-control" name={props.recipe.name} />
             <label className="form-label" htmlFor={props.recipe.name}></label>
           </div>
           <div className="form-floating flex-fill mb-3">
-            <input
-              type="text"
-              className="form-control"
-              name={props.recipe.ingredients_list}
-              value={props.recipe.ingredients_list}
-            />
+            <input type="text" className="form-control" name={props.recipe.ingredients_list} />
             <label className="form-label" htmlFor={props.recipe.ingredients_list}></label>
           </div>
           <div className="form-floating flex-fill mb-3">
-            <input type="text" className="form-control" name={props.recipe.prep_time} value={props.recipe.prep_time} />
+            <input type="text" className="form-control" name={props.recipe.prep_time} />
             <label className="form-label" htmlFor={props.recipe.prep_time}></label>
           </div>
           <div className="form-floating flex-fill mb-0">
-            <input type="text" className="form-control" name={props.recipe.cook_time} value={props.recipe.cook_time} />
+            <input type="text" className="form-control" name={props.recipe.cook_time} />
             <label className="form-label" htmlFor={props.recipe.cook_time}></label>
           </div>
         </form>
